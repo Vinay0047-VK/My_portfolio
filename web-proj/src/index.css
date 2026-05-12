@@ -111,6 +111,11 @@ nav.navbar{
     top: 0;      
     left: 0; 
   }
+  .header:hover{
+    background-color: #59e0e7;
+    transition: all 0.3s ease;
+    font-size: 20px;
+  }
   
   /* Transformation to Vertical Sidebar */
   .header.sidebar {
@@ -131,6 +136,22 @@ nav.navbar{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 
+}
+.navbar:hover{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+    text-align: right;
+    border-radius: 10px;
+
+}
+.nav-links:hover{
+    background-color: rgb(10, 5, 5);
+    padding: 5px 10px;
+    color: white;
+    border-radius: 10px;
+    border: #1693c0 2px solid;
 }
   
   /* Adjusting the Nav items for Sidebar mode */
