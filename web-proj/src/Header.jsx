@@ -22,7 +22,7 @@
 // export default Header;
 
 import React, { useState, useEffect } from 'react';
-
+import Card from './Cards.jsx'
 
 const Header = () => {
   const [isSidebar, setIsSidebar] = useState(false);
@@ -45,6 +45,7 @@ const Header = () => {
     <>
       <header className={isSidebar ? 'header sidebar' : 'header'}>
         <nav className="navbar">
+          <Card className={isSidebar ? 'default': 'card-change'}></Card>
           <ul className="nav-links">
             <li>Home</li>
             <li>Projects</li>
