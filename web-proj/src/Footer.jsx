@@ -1,12 +1,14 @@
 function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <div>
-        <footer className="main-footer">
-            <div className="container">
-            <p>&copy; 2024 My Website. All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
+    <footer className="main-footer">
+      <div className="footer-inner">
+        <p className="footer-copy">&copy; {year} Vinay Kumar N. All rights reserved.</p>
+        <p className="footer-tagline">Built with React + Vite</p>
+      </div>
+    </footer>
   );
 }
+
 export default Footer;

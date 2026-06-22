@@ -1,30 +1,15 @@
-import profilepic from "./assets/profilepic.jpg";
-import React, { useState, useEffect } from 'react';
+const Card = () => {
+  return (
+    <div className="card-logo">
+      <div className="prof-pic-logo" aria-hidden="true">
+        <span>VN</span>
+      </div>
+      <div className="card-logo-content">
+        <h2 className="my-name-logo">Vinay Kumar N</h2>
+        <p className="descrip-logo">Full Stack Developer</p>
+      </div>
+    </div>
+  );
+};
 
-const Card =()=>{
-
-  const [isSidebar, setIsSidebar] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Change to sidebar after 150px of scrolling
-      if (window.scrollY > 150) {
-        setIsSidebar(true);
-      } else {
-        setIsSidebar(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-    return(
-        <div className={isSidebar? 'card' : 'card-change'}>
-            <img className='prof-pic' src={profilepic} alt="profile-pic" />
-            <h2 className="my-name">Vinay Kumar N</h2>
-            <p className="descrip">Card Description</p>
-        </div>
-    )
-}
 export default Card;
