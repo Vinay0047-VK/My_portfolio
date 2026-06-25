@@ -14,8 +14,8 @@
   --accent-cyan: #22d3ee;
   --accent-purple: #a78bfa;
 
-  --gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
-  --gradient-text: linear-gradient(135deg, #818cf8, #bce5ec, #573578);
+  --gradient: #2cc7fabb;
+  --gradient-text: #2cc7fabb;
 
   --border: rgba(255, 255, 255, 0.08);
   --border-glass: rgba(255, 255, 255, 0.12);
@@ -277,6 +277,8 @@ body {
   border-radius: var(--radius-sm);
   transition: color 0.25s ease;
 }
+
+
 
 .nav-links li a:hover,
 .nav-links li.nav-active a {
@@ -654,15 +656,20 @@ section {
 }
 
 .skill-icon {
-  font-size: 1.25rem;
-  justify-content: center;
-  justify-items: center;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .skill-info {
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
+  padding-top: 25px;
 }
 
 .skill-name {
@@ -697,7 +704,8 @@ section {
 }
 
 .project-card:hover {
-  border-color: var(--border-glass);
+  border: 2px solid;
+  border-color:rgba(55, 251, 68, 0) rgb(88, 243, 202);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 

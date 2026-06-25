@@ -3,19 +3,19 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from './components/Ani
 
 const projectList = [
   {
-    title: 'DevConnect',
-    desc: 'A social networking platform for developers. Share projects, connect with peers, and discuss programming topics in real-time.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    github: 'https://github.com',
-    demo: 'https://github.com',
+    title: 'E-commerce Backend Infrastructure ',
+    desc: 'Designed a database for products, orders and users, implementing One-to-Many and Many-to-Many relationships.',
+    tech: ['Python', 'Django', 'PostgreSQL'],
+    github: 'https://github.com/Vinay0047-VK/Django_Learning',
+    demo: 'https://github.com/Vinay0047-VK/Django_Learning',
     accent: '#6366f1',
   },
   {
-    title: 'EcoTrack Dashboard',
-    desc: 'A carbon footprint tracker that visualizes energy, transport, and waste data with responsive charts and daily offset goals.',
-    tech: ['React', 'Vite', 'CSS3', 'Chart.js'],
-    github: 'https://github.com',
-    demo: 'https://github.com',
+    title: 'EduVerse : Learning Management System',
+    desc: 'Developed a LMS with a React frontend and Django backend, featuring dedicated dashboards for Admin, Trainers and Students.',
+    tech: ['React JS', 'Vite', 'CSS3', 'PostgreSQL', 'HTML5'],
+    github: 'https://github.com/preeti-1701/lms-project/tree/VInay_47',
+    demo: 'https://github.com/preeti-1701/lms-project/tree/VInay_47',
     accent: '#22d3ee',
   },
   {
