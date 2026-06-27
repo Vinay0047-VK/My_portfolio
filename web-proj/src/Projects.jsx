@@ -3,6 +3,15 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from './components/Ani
 
 const projectList = [
   {
+    title: 'Task Manager with JWT and Docker Compose',
+    desc: 'Task Manager is a full-stack web application designed to demonstrate industry-standard software engineering practices',
+    tech: ['Django + DRF', 'JWT', 'React + Vite', 'PostgreSQL', 'Redis', 'Docker Compose', 'pytest-django'],
+    github: 'https://github.com/Vinay0047-VK/JWT_Auth__Docker_Compose',
+    demo: 'https://github.com/Vinay0047-VK/JWT_Auth__Docker_Compose',
+    accent: '#a78bfa',
+    latest: true,
+  },
+  {
     title: 'E-commerce Backend Infrastructure ',
     desc: 'Designed a database for products, orders and users, implementing One-to-Many and Many-to-Many relationships.',
     tech: ['Python', 'Django', 'PostgreSQL'],
@@ -17,14 +26,6 @@ const projectList = [
     github: 'https://github.com/preeti-1701/lms-project/tree/VInay_47',
     demo: 'https://github.com/preeti-1701/lms-project/tree/VInay_47',
     accent: '#22d3ee',
-  },
-  {
-    title: 'SmartShop E-Commerce',
-    desc: 'A modern online store with shopping cart, filters, checkout flow, product search, and fully responsive layout.',
-    tech: ['React', 'Context API', 'CSS3', 'Stripe API'],
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    accent: '#a78bfa',
   },
 ];
 
@@ -47,7 +48,8 @@ const Projects = () => {
                 style={{ background: `radial-gradient(circle at top, ${project.accent}33, transparent 70%)` }}
               />
               <div className="project-card-header">
-                <span className="folder-icon">📂</span>
+                {/* <span className="folder-icon"></span> */}
+                {project.latest && <span className="latest-badge">Latest</span>}
                 <div className="project-links">
                   <a
                     href={project.github}
