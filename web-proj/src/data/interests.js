@@ -1,9 +1,20 @@
+import GOWImage from '../assets/interests/sport/GOW.png';
+import BGMIImage from '../assets/interests/sport/BGMI.png';
+import GTAImage from '../assets/interests/sport/GTA.png';
+import NFSImage from '../assets/interests/sport/nfs.png';
+
 export const interestCategories = [
   {
     id: 'sport',
     title: 'Sport',
     icon: '⚽',
     description: 'Matches, training sessions, and moments from the field.',
+  },
+  {
+    id: 'video-games',
+    title: 'Video Games',
+    icon: '🎮',
+    description: 'Immersive worlds, thrilling adventures, and competitive gaming.',
   },
   {
     id: 'chess',
@@ -46,6 +57,36 @@ export const interestMedia = {
       src: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80',
       alt: 'Football on the pitch',
       caption: 'Weekend match',
+    },
+  ],
+  'video-games': [
+    {
+      id: 'game-1',
+      type: 'image',
+      src: GOWImage,
+      alt: 'God of War',
+      caption: 'God of War - Epic battles and Norse mythology.',
+    },
+    {
+      id: 'game-2',
+      type: 'image',
+      src: BGMIImage,
+      alt: 'BGMI',
+      caption: 'BGMI - Battle Royale and intense survival.',
+    },
+    {
+      id: 'game-3',
+      type: 'image',
+      src: GTAImage,
+      alt: 'GTA',
+      caption: 'GTA - Open-world chaos and thrilling missions.',
+    },
+    {
+      id: 'game-4',
+      type: 'image',
+      src: NFSImage,
+      alt: 'Need for Speed',
+      caption: 'Need for Speed - High-speed racing and adrenaline.',
     },
   ],
   chess: [

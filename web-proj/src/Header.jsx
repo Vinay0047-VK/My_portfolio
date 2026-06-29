@@ -11,6 +11,12 @@ const HOME_NAV = [
   { id: 'contact', label: 'Contact', to: '/#contact' },
 ];
 
+const ACADEMICS_NAV = {
+  id: 'academics',
+  label: 'Academics',
+  to: '/academics',
+};
+
 const INTERESTS_NAV = {
   id: 'interests',
   label: 'My Interests',
@@ -24,6 +30,7 @@ const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
   const isInterestsPage = location.pathname === '/my-interests';
+  const isAcademicsPage = location.pathname === '/academics';
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -35,10 +42,11 @@ const Header = () => {
 
   const isActive = (id) => {
     if (id === 'interests') return isInterestsPage;
+    if (id === 'academics') return isAcademicsPage;
     return isHome && activeSection === id;
   };
 
-  const allNavItems = [...HOME_NAV, INTERESTS_NAV];
+  const allNavItems = [...HOME_NAV, ACADEMICS_NAV, INTERESTS_NAV];
 
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>

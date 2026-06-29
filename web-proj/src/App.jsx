@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import HomePage from './pages/HomePage';
 import MyInterestsPage from './pages/MyInterestsPage';
+import AcademicsPage from './pages/AcademicsPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/my-interests" element={<MyInterestsPage />} />
         </Routes>
         <Footer />

@@ -1280,3 +1280,353 @@ section {
   border: 1px dashed var(--border);
   border-radius: var(--radius-md);
 }
+/* ===================================================
+   ACADEMICS PAGE
+   =================================================== */
+
+.acad-page {
+  padding-top: calc(var(--header-height) + 40px);
+  padding-bottom: 80px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.acad-hero {
+  text-align: center;
+  padding: 48px 0 40px;
+}
+
+.acad-hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin: 16px 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.acad-hero-desc {
+  max-width: 560px;
+  margin: 0 auto 32px;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.acad-jump-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.acad-jump-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--pill-color, var(--accent));
+  color: var(--pill-color, var(--accent));
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+}
+
+.acad-jump-pill:hover {
+  background: var(--pill-color, var(--accent));
+  color: #fff;
+  box-shadow: 0 0 18px var(--pill-color, var(--accent));
+}
+
+.acad-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-left: 28px;
+}
+
+.acad-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(99, 102, 241, 0.6),
+    rgba(34, 211, 238, 0.4),
+    rgba(167, 139, 250, 0.3)
+  );
+  border-radius: 2px;
+}
+
+.acad-timeline-entry {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.acad-timeline-dot {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-top: 22px;
+  margin-left: -36px;
+  border: 2px solid #0a0a0f;
+  z-index: 1;
+  position: relative;
+}
+
+.acad-degree-card {
+  flex: 1;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.acad-degree-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(ellipse at top left, var(--deg-glow, rgba(99,102,241,0.15)) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.acad-degree-card:hover {
+  box-shadow: 0 8px 40px var(--deg-glow, rgba(99, 102, 241, 0.2));
+  border-color: var(--deg-color, var(--accent));
+}
+
+.acad-degree-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.acad-degree-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.acad-degree-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.acad-degree-period {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--deg-color, var(--accent));
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.acad-degree-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  line-height: 1.3;
+}
+
+.acad-degree-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  background: var(--deg-color, var(--accent));
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.acad-semesters {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.acad-semester {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.22s;
+}
+
+.acad-sem-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.acad-sem-header:hover,
+.acad-sem-header.open {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.acad-sem-label {
+  flex: 1;
+}
+
+.acad-sem-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.acad-sem-chevron {
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease, color 0.2s;
+  display: inline-block;
+}
+
+.acad-sem-chevron.open {
+  transform: rotate(-180deg);
+  color: var(--sem-color, var(--accent));
+}
+
+.acad-sem-body {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.01);
+  border-top: 1px solid var(--border);
+}
+
+.acad-subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  padding: 16px;
+}
+
+.acad-subject-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: default;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.acad-subject-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--sem-color, var(--accent));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.acad-subject-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sem-color, var(--accent));
+  margin-top: 6px;
+  box-shadow: 0 0 6px var(--sem-color, var(--accent));
+}
+
+.acad-subject-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.acad-subject-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .acad-timeline {
+    padding-left: 18px;
+  }
+  .acad-timeline-dot {
+    margin-left: -26px;
+    width: 12px;
+    height: 12px;
+  }
+  .acad-degree-card {
+    padding: 20px 16px 16px;
+  }
+  .acad-degree-header {
+    gap: 12px;
+  }
+  .acad-degree-icon-wrap {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+  .acad-subjects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Score pill (inside degree card) ── */
+.acad-score-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--score-color, var(--accent));
+  width: fit-content;
+}
+
+.acad-score-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.acad-score-value {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--score-color, var(--accent));
+}
