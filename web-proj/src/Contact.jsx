@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedSection } from './components/AnimatedSection';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from './firebase';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -16,34 +18,21 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      // Create a free account at web3forms.com to get your access key
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          // TODO: Replace with your actual Web3Forms access key
-          access_key: "YOUR_ACCESS_KEY_HERE", 
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }),
+      // Add a new document with a generated id to the "messages" collection
+      await addDoc(collection(db, "messages"), {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        createdAt: serverTimestamp()
       });
-      const result = await response.json();
-      if (result.success) {
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setTimeout(() => setIsSubmitted(false), 5000);
-      } else {
-        console.error("Error submitting form", result);
-        alert("Failed to send message. Please try again later.");
-      }
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong! Please check your connection.");
+      console.error("Error adding document: ", error);
+      alert("Something went wrong! Please check your connection or Firebase config.");
     } finally {
       setIsLoading(false);
     }
