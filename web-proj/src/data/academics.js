@@ -5,8 +5,8 @@ export const academicData = [
     fullName: 'Master of Computer Applications',
     period: '2024 – 2026',
     icon: '💻',
-    color: '#6366f1',
-    glow: 'rgba(99, 102, 241, 0.25)',
+    color: 'hsl(220, 70%, 72%)',
+    glow: 'hsla(220, 70%, 72%, 0.18)',
     score: { label: 'CGPA', value: 'In Progress' },
     semesters: [
       {
@@ -105,8 +105,8 @@ export const academicData = [
     fullName: 'Bachelor of Science (Physics & Mathematics)',
     period: '2021 – 2024',
     icon: '🎓',
-    color: '#22d3ee',
-    glow: 'rgba(34, 211, 238, 0.2)',
+    color: 'hsl(220, 40%, 58%)',
+    glow: 'hsla(220, 40%, 58%, 0.15)',
     score: { label: 'CGPA', value: '8.38' },
     semesters: [
       {
@@ -233,8 +233,8 @@ export const academicData = [
     fullName: 'Pre-University Course (Science)',
     period: '2019 – 2021',
     icon: '📚',
-    color: '#a78bfa',
-    glow: 'rgba(167, 139, 250, 0.2)',
+    color: 'hsl(220, 22%, 46%)',
+    glow: 'hsla(220, 22%, 46%, 0.14)',
     score: { label: 'Percentage', value: '85.66%' },
     semesters: [
       {
@@ -267,8 +267,8 @@ export const academicData = [
     fullName: 'Secondary School Leaving Certificate',
     period: '2018 – 2019',
     icon: '🏫',
-    color: '#f59e0b',
-    glow: 'rgba(245, 158, 11, 0.2)',
+    color: 'hsl(220, 14%, 36%)',
+    glow: 'hsla(220, 14%, 36%, 0.12)',
     score: { label: 'Percentage', value: '83.68%' },
     semesters: [
       {

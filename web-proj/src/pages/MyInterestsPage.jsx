@@ -50,9 +50,9 @@ const MyInterestsPage = () => {
             className="interests-tab"
             onClick={() => scrollToSection(cat.id)}
           >
-            <span className="interests-tab-icon" aria-hidden="true">
+            {/* <span className="interests-tab-icon" aria-hidden="true">
               {cat.icon}
-            </span>
+            </span> */}
             {cat.title}
           </button>
         ))}
@@ -66,9 +66,9 @@ const MyInterestsPage = () => {
           delay={index * 0.05}
         >
           <div className="interest-section-header">
-            <span className="interest-section-icon" aria-hidden="true">
+            {/* <span className="interest-section-icon" aria-hidden="true">
               {cat.icon}
-            </span>
+            </span> */}
             <div>
               <h2 className="section-title interest-section-title">
                 {cat.title}

@@ -15,9 +15,10 @@ function SubjectCard({ subject, index }) {
   return (
     <motion.div
       className="acad-subject-card"
-      {...fadeUp(index * 0.06)}
-      whileHover={{ y: -4, scale: 1.02 }}
-      transition={{ type: 'spring', stiffness: 320, damping: 24 }}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
+      whileHover={{ y: -3, scale: 1.01 }}
     >
       <span className="acad-subject-dot" />
       <div>
@@ -28,48 +29,14 @@ function SubjectCard({ subject, index }) {
   );
 }
 
-/* ── Semester accordion panel ── */
-function SemesterPanel({ semester, color, defaultOpen }) {
-  const [open, setOpen] = useState(defaultOpen || false);
-
-  return (
-    <div className="acad-semester" style={{ '--sem-color': color }}>
-      <button
-        className={`acad-sem-header ${open ? 'open' : ''}`}
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-      >
-        <span className="acad-sem-label">{semester.label}</span>
-        <span className="acad-sem-count">
-          {semester.subjects.length} subject{semester.subjects.length !== 1 ? 's' : ''}
-        </span>
-        <span className={`acad-sem-chevron ${open ? 'open' : ''}`}>▾</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            className="acad-sem-body"
-            key="body"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="acad-subjects-grid">
-              {semester.subjects.map((subj, i) => (
-                <SubjectCard key={subj.name} subject={subj} index={i} />
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-/* ── Degree section card ── */
+/* ── Degree section card (with exclusive-open semester logic) ── */
 function DegreeCard({ prog, index }) {
+  const [activeSem, setActiveSem] = useState(0); // index of open semester
+
+  const handleSemClick = (i) => {
+    setActiveSem((prev) => (prev === i ? null : i));
+  };
+
   return (
     <motion.section
       className="acad-degree-card"
@@ -96,17 +63,42 @@ function DegreeCard({ prog, index }) {
         </div>
       </div>
 
-      {/* Timeline of semesters */}
-      <div className="acad-semesters">
+      {/* Semester block buttons */}
+      <div className="acad-sem-blocks">
         {prog.semesters.map((sem, i) => (
-          <SemesterPanel
+          <button
             key={sem.sem}
-            semester={sem}
-            color={prog.color}
-            defaultOpen={i === 0}
-          />
+            className={`acad-sem-block ${activeSem === i ? 'active' : ''}`}
+            onClick={() => handleSemClick(i)}
+            aria-expanded={activeSem === i}
+          >
+            <span className="acad-sem-block-label">{sem.label}</span>
+            <span className="acad-sem-block-count">
+              {sem.subjects.length} subject{sem.subjects.length !== 1 ? 's' : ''}
+            </span>
+          </button>
         ))}
       </div>
+
+      {/* Subject panel — only active semester */}
+      <AnimatePresence mode="wait">
+        {activeSem !== null && prog.semesters[activeSem] && (
+          <motion.div
+            key={activeSem}
+            className="acad-sem-body"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="acad-subjects-grid">
+              {prog.semesters[activeSem].subjects.map((subj, i) => (
+                <SubjectCard key={subj.name} subject={subj} index={i} />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 }
@@ -141,17 +133,27 @@ const AcademicsPage = () => {
               className="acad-jump-pill"
               style={{ '--pill-color': prog.color }}
             >
-              {prog.icon} {prog.degree}
+              {/* {prog.icon} */} {prog.degree}
             </a>
           ))}
         </motion.div>
       </section>
 
+      {/* Degree Journey */}
+      <div className="acad-journey-label">
+        <span className="acad-journey-line" />
+        <span className="acad-journey-text">Degree Journey</span>
+        <span className="acad-journey-line" />
+      </div>
+
       {/* Timeline line + degree cards */}
       <div className="acad-timeline">
         {academicData.map((prog, i) => (
           <div key={prog.id} id={prog.id} className="acad-timeline-entry">
-            <div className="acad-timeline-dot" style={{ background: prog.color, boxShadow: `0 0 14px ${prog.color}` }} />
+            <div
+              className="acad-timeline-dot"
+              style={{ background: prog.color, boxShadow: `0 0 14px ${prog.color}` }}
+            />
             <DegreeCard prog={prog} index={i} />
           </div>
         ))}
